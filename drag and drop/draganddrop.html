@@ -1,0 +1,82 @@
+<html ng-app="myApp">
+
+<head>
+    <title>index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="scripts/close.js"></script>
+    <link href="css/main.css" rel="stylesheet"> </head>
+
+<body ng-controller="myCtrl">
+    <div class="container">
+        <h2>Modal Example</h2>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="sel1">Select Category (select one):</label>
+                            <select class="form-control" id="sel1" ng-model="category">
+                                <option value="Demo">Demo</option>
+                                <option value="Analysis">Analysis</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Testing">Testing</option>
+                            </select>
+                            <br>
+                            <div class="form-group">
+                                <label for="usr">Task Name:</label>
+                                <input type="text" ng-model="taskName" class="form-control" id="usr">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Description:</label>
+                                <textarea class="form-control"  ng-model="description" rows="5" id="comment"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="addTask()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===== another container=======-->
+    <div class="container">
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Analysis</th>
+                    <th>Draft</th>
+                    <th>Testing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in listOfTask">
+                    <th>{{$index+1}}</th>
+                    <th>{{data.category}}</th>
+                    <td>{{data.taskName}}<br>{{data.description}}</td>
+                    <td>{{data.analysis}}</td>
+                    <td>{{data.draft}}</td>
+                    <td>{{data.test}}</td>
+                </tr>
+            </tbody>     
+        </table>
+        {{listOfTask}}
+    </div>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>

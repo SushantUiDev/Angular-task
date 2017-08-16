@@ -1,0 +1,25 @@
+<html ng-app="myApp">
+
+<head>
+    <title>index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller="MyCtrl">
+        <table border="1">
+            <tr>
+                <th ng-repeat="column in cols">{{column}}</th>
+            </tr>
+            <tr ng-repeat="row in rows">
+                <td ng-repeat="column in cols">{{row[column]}}</td>
+            </tr>
+        </table>
+        <script src="app.js"></script>
+    </div>
+
+    <body>
+
+    </body>
+
+</html>
